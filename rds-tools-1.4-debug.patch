@@ -1,0 +1,20 @@
+--- rds-tools-1.4-1/Makefile.in.debug	2009-07-21 11:35:52.068919470 -0400
++++ rds-tools-1.4-1/Makefile.in	2009-07-21 11:36:05.751669574 -0400
+@@ -6,7 +6,7 @@
+ 
+ all: all-programs
+ 
+-CFLAGS = -O2 -Wall
++CFLAGS = -O2 -Wall -g
+ CPPFLAGS = -DDEBUG_EXE -MD -MP -MF $(@D)/.$(basename $(@F)).d
+ 
+ HEADERS = kernel-list.h rdstool.h pfhack.h net/rds.h net/ib_rds.h
+@@ -30,7 +30,7 @@
+ 
+ install: $(PROGRAMS)
+ 	install -d $(bindir)
+-	install -m 555 -s $(PROGRAMS) $(bindir)
++	install -m 555 $(PROGRAMS) $(bindir)
+ 	install -d $(mandir)/man1
+ 	install -d $(mandir)/man7
+ 	install -m 644 *.1 $(mandir)/man1
